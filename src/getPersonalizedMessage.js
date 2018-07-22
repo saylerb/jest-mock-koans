@@ -1,8 +1,8 @@
-import { getCustomer } from './customerApiClient'
+import { getStarWarsCharacterById } from './starWarsApiClient'
 
-const getPersonalizedMessage = async (customerId) => {
-  const customer = await getCustomer(customerId)
-  return `Howdy ${customer.name}!`
+const getPersonalizedMessage = async (id) => {
+  const character = await getStarWarsCharacterById(id)
+  return `May the Force be with you, ${character.name}!`
 }
 
 export default getPersonalizedMessage

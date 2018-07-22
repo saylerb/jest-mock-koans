@@ -1,34 +1,34 @@
 import getPersonalizedMessage from '../src/getPersonalizedMessage'
-import { getCustomer } from '../src/customerApiClient'
+import { getStarWarsCharacterById } from '../src/starWarsApiClient'
 
 const FILL_IN_HERE = 'FILL_IN_HERE'
 
 // https://facebook.github.io/jest/docs/en/jest-object.html#jestmockmodulename-factory-options
-jest.mock('../src/customerApiClient', () => {
+jest.mock('../src/starWarsApiClient', () => {
   return {
-    getCustomer: jest.fn(() => {
+    getStarWarsCharacterById: jest.fn(() => {
       return {
-        name: 'Philip Song'
+        name: 'Leia Organa'
       }
     })
   }
 })
 
 describe('jest.mock()', () => {
-  const customerId = 7
+  const starWarsCharacterId = 7
   
   test('should override imported module', async () => {
-    const message = await getPersonalizedMessage(customerId)
+    const message = await getPersonalizedMessage(starWarsCharacterId)
     
-    expect(getCustomer).toHaveBeenCalledWith(FILL_IN_HERE)
+    expect(getStarWarsCharacterById).toHaveBeenCalledWith(FILL_IN_HERE)
     expect(message).toEqual(FILL_IN_HERE)
   })
   
   test('can import mocked module to set mock implementation', async () => {
-    getCustomer.mockImplementation(FILL_IN_HERE)
+    getStarWarsCharacterById.mockImplementation(FILL_IN_HERE)
     
-    const message = await getPersonalizedMessage(customerId)
+    const message = await getPersonalizedMessage(starWarsCharacterId)
 
-    expect(message).toEqual('Howdy Ryle Garcia!')
+    expect(message).toEqual('May the Force be with you, Luke Skywalker!')
   })
 })
