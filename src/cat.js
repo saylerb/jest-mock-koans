@@ -1,19 +1,19 @@
 export default class Cat {
   constructor() {
-    this.isFull = false
+    this.isFull = false;
   }
-  
+
   feed() {
-    this.isFull = true
+    this.isFull = true;
   }
-  
+
   makeNoise(times, loud) {
-    let noise = this.isFull ? 'purr' : 'meow'
-    
+    let noise = this.isFull ? "purr" : "meow";
+
     if (loud) {
-      noise = noise.toUpperCase()
+      noise = noise.toUpperCase();
     }
-    
-    return noise.repeat(times)
+
+    return noise.repeat(times);
   }
 }

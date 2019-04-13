@@ -1,5 +1,5 @@
-const playWithCat = (cat) => {
-  return cat.makeNoise(4, false)
-}
+const playWithCat = cat => {
+  return cat.makeNoise(4, false);
+};
 
-export default playWithCat
+export default playWithCat;

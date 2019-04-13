@@ -1,6 +1,6 @@
 const isPhoneAffordable = (maxPrice, getPhonePrice) => {
-  const price = getPhonePrice()
-  return price <= maxPrice
-}
+  const price = getPhonePrice();
+  return price <= maxPrice;
+};
 
-export default isPhoneAffordable
+export default isPhoneAffordable;
